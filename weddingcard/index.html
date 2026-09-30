@@ -1,0 +1,1449 @@
+WeddingCard
+│
+├── index.html
+│
+├── images
+│   ├── a1.jpg
+│   └── 321.jpg
+│
+└── music
+    └── gol.mp3
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>دعوتنامه مهدی و مژگان</title>
+
+<!-- فونت نستعلیق -->
+<link rel="stylesheet"
+      href="https://v1.fontapi.ir/css/IranNastaliq">
+
+<style>
+
+/* =====================================================
+   تنظیمات اصلی
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* همه نوشته ها نستعلیق */
+html,
+body,
+body *,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+a,
+button {
+    font-family: "IranNastaliq",
+                 "Iran Nastaliq",
+                 serif !important;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #000;
+    color: #fff;
+}
+
+
+/* =====================================================
+   ستاره های نورانی دائمی
+===================================================== */
+
+#stars {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 5px #fff,
+        0 0 12px #fff,
+        0 0 22px #f7d98a;
+
+    animation: starGlow
+               2s ease-in-out
+               infinite alternate;
+}
+
+@keyframes starGlow {
+
+    from {
+        opacity: .25;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+}
+
+
+/* =====================================================
+   صفحه اول
+===================================================== */
+
+#pageOne {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    background-image:
+        url("./images/a1.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+
+/* لایه بسیار کم روی عکس */
+#pageOne::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.08);
+
+}
+
+
+.firstText {
+
+    position: relative;
+
+    z-index: 20;
+
+    padding: 25px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 8px #fff,
+        0 0 18px rgba(255,215,130,.9),
+        0 4px 15px #000;
+}
+
+
+.firstTitle {
+
+    font-size:
+        clamp(32px, 7vw, 65px);
+
+    margin-bottom: 25px;
+
+}
+
+
+.firstClick {
+
+    font-size:
+        clamp(18px, 4vw, 30px);
+
+    animation:
+        pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+
+    0% {
+        opacity: .55;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.06);
+    }
+
+    100% {
+        opacity: .55;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   صفحه اطلاعات
+===================================================== */
+
+#pageTwo {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5;
+
+    overflow-y: auto;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0,0,0,.50),
+            rgba(0,0,0,.50)
+        ),
+
+        url("./images/321.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+
+/* =====================================================
+   ظرف کارت
+===================================================== */
+
+.pageContainer {
+
+    min-height: 100%;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding:
+        30px 15px;
+}
+
+
+/* =====================================================
+   کارت سفید و طلایی
+===================================================== */
+
+.card {
+
+    width: min(850px, 94vw);
+
+    padding:
+        35px 25px 40px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    /* کارت نیمه شفاف */
+    background:
+        rgba(255,255,255,.78);
+
+    border:
+        2px solid rgba(218,175,74,.85);
+
+    box-shadow:
+
+        0 0 20px
+        rgba(255,215,100,.35),
+
+        0 0 50px
+        rgba(0,0,0,.35),
+
+        inset 0 0 25px
+        rgba(255,215,120,.12);
+
+    color: #3d321e;
+
+    backdrop-filter: blur(2px);
+
+    -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* =====================================================
+   اسم عروس و داماد
+===================================================== */
+
+.names {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 22px;
+
+    font-size:
+        clamp(45px, 9vw, 78px);
+
+    line-height: 1;
+
+    color: #8c6820;
+
+    text-shadow:
+        0 1px 2px #fff,
+        0 0 8px rgba(218,175,74,.45);
+
+}
+
+
+.heart {
+
+    font-family:
+        "IranNastaliq",
+        serif !important;
+
+    color: #b38a2d;
+
+    font-size: .55em;
+
+    text-shadow:
+        0 0 8px #d8b45a,
+        0 0 15px rgba(218,175,74,.7);
+
+}
+
+
+/* =====================================================
+   پارسا و رزمی
+===================================================== */
+
+.familyNames {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 120px;
+
+    margin-top: 12px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.familyName {
+
+    font-size:
+        clamp(25px, 4vw, 38px);
+
+    color: #a47c28;
+
+    line-height: 1;
+
+}
+
+
+/* =====================================================
+   خط طلایی
+===================================================== */
+
+.goldLine {
+
+    width: 75%;
+
+    height: 2px;
+
+    margin:
+        18px auto;
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            #d4af55,
+            #f4df9d,
+            #d4af55,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(212,175,85,.5);
+}
+
+
+/* =====================================================
+   متن دعوت
+===================================================== */
+
+.invitation {
+
+    font-size:
+        clamp(21px, 4vw, 31px);
+
+    line-height: 2;
+
+    color: #493c26;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,.8);
+
+    margin:
+        10px auto 20px;
+
+    max-width: 760px;
+
+}
+
+
+/* =====================================================
+   عنوان بخش ها
+===================================================== */
+
+.sectionTitle {
+
+    font-size:
+        clamp(30px, 5vw, 44px);
+
+    color: #9b7424;
+
+    margin-top: 18px;
+
+    margin-bottom: 3px;
+
+    text-shadow:
+        0 1px 1px #fff,
+        0 0 7px
+        rgba(212,175,85,.35);
+
+}
+
+
+/* =====================================================
+   تاریخ
+===================================================== */
+
+.date {
+
+    font-size:
+        clamp(22px, 4vw, 31px);
+
+    color: #493c26;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   مکان
+===================================================== */
+
+.place {
+
+    font-size:
+        clamp(20px, 3.7vw, 29px);
+
+    color: #493c26;
+
+    line-height: 1.9;
+
+}
+
+
+/* تالار زیتون بزرگ تر */
+.hall {
+
+    display: block;
+
+    font-size:
+        clamp(35px, 6vw, 52px);
+
+    color: #a47a20;
+
+    margin:
+        4px 0;
+
+    text-shadow:
+        0 1px 2px #fff,
+        0 0 10px
+        rgba(212,175,85,.45);
+
+}
+
+
+/* =====================================================
+   ساعت
+===================================================== */
+
+.time {
+
+    font-size:
+        clamp(21px, 4vw, 30px);
+
+    color: #493c26;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   عنوان شمارش معکوس
+===================================================== */
+
+.countTitle {
+
+    font-size:
+        clamp(27px, 5vw, 40px);
+
+    color: #9b7424;
+
+    margin-top: 25px;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =====================================================
+   شمارش معکوس
+===================================================== */
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    direction: rtl;
+
+}
+
+
+.countBox {
+
+    min-width: 78px;
+
+    padding:
+        8px 10px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.60);
+
+    border:
+        1px solid
+        rgba(185,143,43,.55);
+
+    box-shadow:
+        0 0 10px
+        rgba(212,175,85,.20);
+
+}
+
+
+.countNumber {
+
+    display: block;
+
+    font-family:
+        "IranNastaliq",
+        serif !important;
+
+    font-size: 30px;
+
+    color: #7d5d1e;
+
+}
+
+
+.countLabel {
+
+    display: block;
+
+    font-size: 20px;
+
+    color: #9b7424;
+
+}
+
+
+/* =====================================================
+   تایید حضور
+===================================================== */
+
+.rsvp {
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding:
+        8px 35px;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b38a2d,
+            #d9b95d,
+            #9c7420
+        );
+
+    border:
+        1px solid #f1d98d;
+
+    font-size:
+        clamp(25px, 4vw, 36px);
+
+    box-shadow:
+        0 4px 15px
+        rgba(132,98,27,.35);
+
+    transition:
+        .3s ease;
+
+}
+
+
+.rsvp:hover {
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        0 5px 25px
+        rgba(132,98,27,.55);
+
+}
+
+
+.rsvpSubtitle {
+
+    margin-top: 4px;
+
+    font-size:
+        clamp(19px, 3.5vw, 27px);
+
+    color: #6f5420;
+
+}
+
+
+/* =====================================================
+   ستاره های زمان کلیک
+===================================================== */
+
+.explosionStar {
+
+    position: fixed;
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+
+        0 0 8px white,
+
+        0 0 18px #fff,
+
+        0 0 30px #f5d889;
+
+    pointer-events: none;
+
+    z-index: 200;
+
+}
+
+
+/* =====================================================
+   موبایل
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        padding:
+            28px 15px 35px;
+
+        border-radius: 24px;
+
+    }
+
+
+    .names {
+
+        gap: 10px;
+
+    }
+
+
+    .familyNames {
+
+        gap: 65px;
+
+    }
+
+
+    .goldLine {
+
+        width: 90%;
+
+    }
+
+
+    .countBox {
+
+        min-width: 65px;
+
+        padding:
+            5px 7px;
+
+    }
+
+
+    .countNumber {
+
+        font-size: 25px;
+
+    }
+
+
+    .countLabel {
+
+        font-size: 17px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ستاره های دائمی
+===================================================== -->
+
+<div id="stars"></div>
+
+
+<!-- =====================================================
+     صفحه اول
+===================================================== -->
+
+<section id="pageOne">
+
+    <div class="firstText">
+
+        <div class="firstTitle">
+            منتظر حضور گرمتان هستیم
+        </div>
+
+        <div class="firstClick">
+            برای ورود روی عکس کلیک کنید ✨
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     صفحه اطلاعات
+===================================================== -->
+
+<section id="pageTwo">
+
+    <div class="pageContainer">
+
+        <div class="card">
+
+
+            <!-- نام ها -->
+
+            <div class="names">
+
+                <span>
+                    مهدی
+                </span>
+
+                <span class="heart">
+                    ♥
+                </span>
+
+                <span>
+                    مژگان
+                </span>
+
+            </div>
+
+
+            <!-- نام خانوادگی -->
+
+            <div class="familyNames">
+
+                <div class="familyName">
+                    پارسا
+                </div>
+
+                <div class="familyName">
+                    رزمی
+                </div>
+
+            </div>
+
+
+            <!-- متن دعوت -->
+
+            <div class="invitation">
+
+                قصه‌مون از «من و تو» شروع شد،<br>
+
+                و قراره برای همیشه «ما» بمونیم… ❤️<br>
+
+                با عشق، منتظر حضورتون در قشنگ‌ترین شب زندگی‌مون هستیم.
+
+            </div>
+
+
+            <div class="goldLine"></div>
+
+
+            <!-- زمان دیدار -->
+
+            <div class="sectionTitle">
+                زمان دیدار
+            </div>
+
+            <div class="date">
+                پنجشنبه ۵ آذر ماه ۱۴۰۵
+            </div>
+
+
+            <!-- مکان دیدار -->
+
+            <div class="sectionTitle">
+                مکان دیدار
+            </div>
+
+            <div class="place">
+
+                این شب زیبا را با صرف شام و شیرینی در
+
+            </div>
+
+            <div class="hall">
+
+                تالار زیتون
+
+            </div>
+
+            <div class="place">
+
+                کنار یکدیگر جشن می‌گیریم
+
+            </div>
+
+
+            <!-- ساعت دیدار -->
+
+            <div class="sectionTitle">
+                ساعت دیدار
+            </div>
+
+            <div class="time">
+
+                از ساعت ۷ تا بدرقه عروس و داماد
+
+            </div>
+
+
+            <div class="goldLine"></div>
+
+
+            <!-- شمارش معکوس -->
+
+            <div class="countTitle">
+
+                تا آغاز قشنگترین شب زندگی مان
+
+            </div>
+
+
+            <div class="countdown">
+
+
+                <div class="countBox">
+
+                    <span
+                        class="countNumber"
+                        id="days">
+                        0
+                    </span>
+
+                    <span class="countLabel">
+                        روز
+                    </span>
+
+                </div>
+
+
+                <div class="countBox">
+
+                    <span
+                        class="countNumber"
+                        id="hours">
+                        0
+                    </span>
+
+                    <span class="countLabel">
+                        ساعت
+                    </span>
+
+                </div>
+
+
+                <div class="countBox">
+
+                    <span
+                        class="countNumber"
+                        id="minutes">
+                        0
+                    </span>
+
+                    <span class="countLabel">
+                        دقیقه
+                    </span>
+
+                </div>
+
+
+                <div class="countBox">
+
+                    <span
+                        class="countNumber"
+                        id="seconds">
+                        0
+                    </span>
+
+                    <span class="countLabel">
+                        ثانیه
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- تایید حضور -->
+
+            <a
+                class="rsvp"
+                href="https://wa.me/"
+                target="_blank">
+
+                تایید حضور
+
+            </a>
+
+
+            <div class="rsvpSubtitle">
+
+                بودنتان شادی مان را کامل می‌کند
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     آهنگ
+===================================================== -->
+
+<audio
+    id="music"
+    src="./music/gol.mp3"
+    preload="auto"
+    loop>
+</audio>
+
+
+<script>
+
+/* =====================================================
+   ساخت ستاره های نورانی دائمی
+===================================================== */
+
+const stars =
+    document.getElementById("stars");
+
+
+for (
+    let i = 0;
+    i < 140;
+    i++
+) {
+
+    const star =
+        document.createElement("div");
+
+    star.className =
+        "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    const size =
+        Math.random() * 3 + 1;
+
+    star.style.width =
+        size + "px";
+
+    star.style.height =
+        size + "px";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    star.style.animationDuration =
+        (1.5 + Math.random() * 2) + "s";
+
+    stars.appendChild(star);
+
+}
+
+
+/* =====================================================
+   عناصر صفحه
+===================================================== */
+
+const pageOne =
+    document.getElementById("pageOne");
+
+const pageTwo =
+    document.getElementById("pageTwo");
+
+const music =
+    document.getElementById("music");
+
+
+/* =====================================================
+   کلیک روی صفحه اول
+===================================================== */
+
+pageOne.addEventListener(
+    "click",
+    function () {
+
+
+        /* ---------------------------------------------
+           پخش آهنگ
+        --------------------------------------------- */
+
+        music.play().catch(
+            function(error) {
+
+                console.log(
+                    "Music error:",
+                    error
+                );
+
+            }
+        );
+
+
+        /* ---------------------------------------------
+           ساخت انفجار ستاره ها
+        --------------------------------------------- */
+
+        const centerX =
+            window.innerWidth / 2;
+
+        const centerY =
+            window.innerHeight / 2;
+
+
+        for (
+            let i = 0;
+            i < 220;
+            i++
+        ) {
+
+            const star =
+                document.createElement("div");
+
+            star.className =
+                "explosionStar";
+
+
+            star.style.left =
+                centerX + "px";
+
+            star.style.top =
+                centerY + "px";
+
+
+            document.body.appendChild(star);
+
+
+            const angle =
+                Math.random()
+                * Math.PI
+                * 2;
+
+
+            const distance =
+                150 +
+                Math.random() * 850;
+
+
+            const endX =
+                Math.cos(angle)
+                * distance;
+
+
+            const endY =
+                Math.sin(angle)
+                * distance;
+
+
+            const duration =
+                900 +
+                Math.random() * 1200;
+
+
+            star.animate(
+
+                [
+
+                    {
+                        transform:
+                            "translate(-50%,-50%) scale(1)",
+                        opacity: 1
+                    },
+
+                    {
+                        transform:
+                            `translate(
+                                ${endX}px,
+                                ${endY}px
+                            ) scale(0)`,
+                        opacity: 0
+                    }
+
+                ],
+
+                {
+
+                    duration:
+                        duration,
+
+                    easing:
+                        "cubic-bezier(.15,.8,.3,1)",
+
+                    fill:
+                        "forwards"
+
+                }
+
+            );
+
+
+            setTimeout(
+                function () {
+
+                    star.remove();
+
+                },
+                duration + 100
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           محو صفحه اول
+        --------------------------------------------- */
+
+        pageOne.style.opacity =
+            "0";
+
+        pageOne.style.visibility =
+            "hidden";
+
+
+        /* ---------------------------------------------
+           نمایش صفحه اطلاعات
+        --------------------------------------------- */
+
+        setTimeout(
+            function () {
+
+                pageTwo.style.opacity =
+                    "1";
+
+                pageTwo.style.visibility =
+                    "visible";
+
+            },
+            500
+        );
+
+    }
+);
+
+
+/* =====================================================
+   شمارش معکوس
+   پنجشنبه ۵ آذر ۱۴۰۵ - ساعت ۷ شب
+===================================================== */
+
+const targetDate =
+    new Date(
+        "2026-11-26T19:00:00"
+    ).getTime();
+
+
+function updateCountdown() {
+
+
+    const now =
+        new Date().getTime();
+
+
+    const difference =
+        targetDate - now;
+
+
+    if (difference <= 0) {
+
+        document.getElementById(
+            "days"
+        ).textContent = "۰";
+
+        document.getElementById(
+            "hours"
+        ).textContent = "۰";
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "۰";
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "۰";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                difference /
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+            ) % 24
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                difference /
+                (
+                    1000 *
+                    60
+                )
+            ) % 60
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                difference /
+                1000
+            ) % 60
+        );
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        toPersianNumber(days);
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        toPersianNumber(hours);
+
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        toPersianNumber(minutes);
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        toPersianNumber(seconds);
+
+}
+
+
+/* =====================================================
+   تبدیل اعداد انگلیسی به فارسی
+===================================================== */
+
+function toPersianNumber(number) {
+
+    return String(number)
+        .replace(
+            /\d/g,
+            function(digit) {
+
+                return "۰۱۲۳۴۵۶۷۸۹"[
+                    digit
+                ];
+
+            }
+        );
+
+}
+
+
+/* اجرای شمارش */
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+</script>
+
+
+</body>
+
+</html>
